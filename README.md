@@ -1,6 +1,6 @@
 # EC2-CostManager
 
-The EC2CostManager starts and stops AWS EC2 instances on a schedule you define based on an OP_MODE tag on your EC2 instances. The schedule is defined in UTC time.  The CloudFormation script creates two lamda functions, one IAM role and four CloudWatch Schedule rules.
+The EC2CostManager starts and stops AWS EC2 instances on a schedule you define based on an OP_MODE tag on your EC2 instances. The schedule is defined in UTC time.  The CloudFormation script creates two lamda functions (a starter and a stopper), one IAM role, and four CloudWatch Schedule rules (two stopper rules and two starter rules).
 
 Instructions:
 
