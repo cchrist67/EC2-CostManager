@@ -105,6 +105,56 @@
         "SUN"
       ],
       "Description": "Last work day of week for business."
+    },
+    "ScaleUpHour": {
+      "Type": "String",
+      "Default": "13",
+      "AllowedValues": [
+        "0", "1", "2", "3", "4", "5", 
+        "6", "7", "8", "9", "10", "11", 
+        "12", "13", "14", "15", "16", "17", 
+        "18", "19", "20", "21", "22", "23"
+      ],
+      "Description": "Hour when instances should be scaled up (in UTC) [0-23]."
+    },
+    "ScaleDownHour": {
+      "Type": "String",
+      "Default": "23",
+      "AllowedValues": [
+        "0", "1", "2", "3", "4", "5", 
+        "6", "7", "8", "9", "10", "11", 
+        "12", "13", "14", "15", "16", "17", 
+        "18", "19", "20", "21", "22", "23"
+      ],
+      "Description": "Hour when instances should be scaled down  (in UTC) [0-23]."
+    },
+    "VerticalPilotWeekStart": {
+      "Type": "String",
+      "Default": "MON",
+      "AllowedValues": [
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI",
+        "SAT",
+        "SUN"
+      ],
+      "Description": "First day of week for scaling up."
+    },
+    "VerticalPilotWeekEnd": {
+      "Type": "String",
+      "Default": "FRI",
+      "AllowedValues": [
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI",
+        "SAT",
+        "SUN"
+      ],
+      "Description": "Last day of week for scaling down."
     }
   },
   "Metadata" : {
@@ -129,6 +179,14 @@
             "BizWeekEnd",           
             "BizDayStartHour", 
             "BizDayStopHour" ]
+        },
+        {
+          "Label" : { "default": "Vertical Pilot Light Scaling Schedule  (Controls vertical scaling for SCALE_UP/SCALE_DOWN tagged instances)" },
+          "Parameters" : [ 
+            "VerticalPilotWeekStart", 
+            "VerticalPilotWeekEnd",           
+            "ScaleUpHour", 
+            "ScaleDownHour" ]
         }
       ],
       "ParameterLabels" : {
@@ -139,12 +197,16 @@
         "BizWeekStart" : { "default" : "Which day is the start of the business week?" },
         "BizWeekEnd" : { "default" : "Which day is the end of the business week?" },
         "BizDayStartHour" : { "default" : "What hour do you want to start your business instances?" },
-        "BizDayStopHour" : { "default" : "What hour do you want to stop your business instances?" }
+        "BizDayStopHour" : { "default" : "What hour do you want to stop your business instances?" },
+        "VerticalPilotWeekStart" : { "default" : "Which day does vertical scaling start?" },
+        "VerticalPilotWeekEnd" : { "default" : "Which day does vertical scaling end?" },           
+        "ScaleUpHour" : { "default" : "What hour do you want to scale up your instances?" },
+        "ScaleDownHour" : { "default" : "What hour do you want to scale down your instances?" }
       }
     }
   },
   "Resources": {
-    "LambdaEC2Role": {
+    "EC2LambdaDynamoRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -165,9 +227,10 @@
         },
         "ManagedPolicyArns": [
           "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
+          "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
           "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
         ],
-        "RoleName": "LambdaEC2Role"
+        "RoleName": "EC2LambdaDynamoRole"
       }
     },
     "EC2StarterLambda": {
@@ -182,7 +245,7 @@
         "Handler": "EC2-Starter-Lambda.lambda_handler",
         "Role": {
           "Fn::GetAtt": [
-            "LambdaEC2Role",
+            "EC2LambdaDynamoRole",
             "Arn"
           ]
         },
@@ -202,7 +265,7 @@
         "Handler": "EC2-Stopper-Lambda.lambda_handler",
         "Role": {
           "Fn::GetAtt": [
-            "LambdaEC2Role",
+            "EC2LambdaDynamoRole",
             "Arn"
           ]
         },
@@ -352,6 +415,36 @@
         "Action": "lambda:InvokeFunction",
         "Principal": "events.amazonaws.com",
         "SourceArn": { "Fn::GetAtt": ["BizWeekStopScheduledRule", "Arn"] }
+      }
+    },
+    "EC2CostManagerAuditTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "InstanceId",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "TimeStamp",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "InstanceId",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "TimeStamp",
+            "KeyType": "RANGE"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": "15",
+          "WriteCapacityUnits": "15"
+        },
+        "TableName": "EC2CostAuditTrail"
       }
     }
   }
