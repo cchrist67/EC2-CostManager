@@ -10,10 +10,30 @@
       "Type": "String",
       "Default": "12",
       "AllowedValues": [
-        "0", "1", "2", "3", "4", "5", 
-        "6", "7", "8", "9", "10", "11", 
-        "12", "13", "14", "15", "16", "17", 
-        "18", "19", "20", "21", "22", "23"
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23"
       ],
       "Description": "Hour when developer day starts (in UTC) [0-23]."
     },
@@ -21,10 +41,30 @@
       "Type": "String",
       "Default": "23",
       "AllowedValues": [
-        "0", "1", "2", "3", "4", "5", 
-        "6", "7", "8", "9", "10", "11", 
-        "12", "13", "14", "15", "16", "17", 
-        "18", "19", "20", "21", "22", "23"
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23"
       ],
       "Description": "Hour when developer day ends (in UTC) [0-23]."
     },
@@ -60,10 +100,30 @@
       "Type": "String",
       "Default": "13",
       "AllowedValues": [
-        "0", "1", "2", "3", "4", "5", 
-        "6", "7", "8", "9", "10", "11", 
-        "12", "13", "14", "15", "16", "17", 
-        "18", "19", "20", "21", "22", "23"
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23"
       ],
       "Description": "Hour when business day starts (in UTC) [0-23]."
     },
@@ -71,10 +131,30 @@
       "Type": "String",
       "Default": "23",
       "AllowedValues": [
-        "0", "1", "2", "3", "4", "5", 
-        "6", "7", "8", "9", "10", "11", 
-        "12", "13", "14", "15", "16", "17", 
-        "18", "19", "20", "21", "22", "23"
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23"
       ],
       "Description": "Hour when business day ends (in UTC) [0-23]."
     },
@@ -110,10 +190,30 @@
       "Type": "String",
       "Default": "13",
       "AllowedValues": [
-        "0", "1", "2", "3", "4", "5", 
-        "6", "7", "8", "9", "10", "11", 
-        "12", "13", "14", "15", "16", "17", 
-        "18", "19", "20", "21", "22", "23"
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23"
       ],
       "Description": "Hour when instances should be scaled up (in UTC) [0-23]."
     },
@@ -121,10 +221,30 @@
       "Type": "String",
       "Default": "23",
       "AllowedValues": [
-        "0", "1", "2", "3", "4", "5", 
-        "6", "7", "8", "9", "10", "11", 
-        "12", "13", "14", "15", "16", "17", 
-        "18", "19", "20", "21", "22", "23"
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23"
       ],
       "Description": "Hour when instances should be scaled down  (in UTC) [0-23]."
     },
@@ -157,51 +277,475 @@
       "Description": "Last day of week for scaling down."
     }
   },
-  "Metadata" : {
-    "AWS::CloudFormation::Interface" : {
-      "ParameterGroups" : [
+  "Metadata": {
+    "AWS::CloudFormation::Interface": {
+      "ParameterGroups": [
         {
-          "Label" : { "default" : "Code Location" },
-          "Parameters" : [ "CodeRepository" ]
+          "Label": {
+            "default": "Code Location"
+          },
+          "Parameters": [
+            "CodeRepository"
+          ]
         },
         {
-          "Label" : { "default":"Developer Schedule Configuration (Controls Start/Stop for DEV_WEEK tagged instances)" },
-          "Parameters" : [ 
-            "DevWeekStart", 
-            "DevWeekEnd",           
-            "DevDayStartHour", 
-            "DevDayStopHour" ]
+          "Label": {
+            "default": "Developer Schedule Configuration (Controls Start/Stop for DEV_WEEK tagged instances)"
+          },
+          "Parameters": [
+            "DevWeekStart",
+            "DevWeekEnd",
+            "DevDayStartHour",
+            "DevDayStopHour"
+          ]
         },
         {
-          "Label" : { "default":"Business Schedule Configuration (Controls Start/Stop for BIZ_WEEK tagged instances)" },
-          "Parameters" : [ 
-            "BizWeekStart", 
-            "BizWeekEnd",           
-            "BizDayStartHour", 
-            "BizDayStopHour" ]
+          "Label": {
+            "default": "Business Schedule Configuration (Controls Start/Stop for BIZ_WEEK tagged instances)"
+          },
+          "Parameters": [
+            "BizWeekStart",
+            "BizWeekEnd",
+            "BizDayStartHour",
+            "BizDayStopHour"
+          ]
         },
         {
-          "Label" : { "default": "Vertical Pilot Light Scaling Schedule  (Controls instance scaling for OP_MODE of VERTICAL_PILOT with SCALE_UP/SCALE_DOWN tags.)" },
-          "Parameters" : [ 
-            "VerticalPilotWeekStart", 
-            "VerticalPilotWeekEnd",           
-            "ScaleUpHour", 
-            "ScaleDownHour" ]
+          "Label": {
+            "default": "Vertical Pilot Light Scaling Schedule  (Controls instance scaling for OP_MODE of VERTICAL_PILOT with SCALE_UP/SCALE_DOWN tags.)"
+          },
+          "Parameters": [
+            "VerticalPilotWeekStart",
+            "VerticalPilotWeekEnd",
+            "ScaleUpHour",
+            "ScaleDownHour"
+          ]
         }
       ],
-      "ParameterLabels" : {
-        "DevWeekStart" : { "default" : "Which day is the start of the deveoper's work week?" },
-        "DevWeekEnd" : { "default" : "Which day is the end of the deveoper's work week?" },
-        "DevDayStartHour" : { "default" : "What hour do you want to start your developer instances?" },
-        "DevDayStopHour" : { "default" : "What hour do you want to stop your developer instances?" },
-        "BizWeekStart" : { "default" : "Which day is the start of the business week?" },
-        "BizWeekEnd" : { "default" : "Which day is the end of the business week?" },
-        "BizDayStartHour" : { "default" : "What hour do you want to start your business instances?" },
-        "BizDayStopHour" : { "default" : "What hour do you want to stop your business instances?" },
-        "VerticalPilotWeekStart" : { "default" : "Which day does vertical scaling start?" },
-        "VerticalPilotWeekEnd" : { "default" : "Which day does vertical scaling end?" },           
-        "ScaleUpHour" : { "default" : "What hour do you want to scale up your instances?" },
-        "ScaleDownHour" : { "default" : "What hour do you want to scale down your instances?" }
+      "ParameterLabels": {
+        "DevWeekStart": {
+          "default": "Which day is the start of the deveoper's work week?"
+        },
+        "DevWeekEnd": {
+          "default": "Which day is the end of the deveoper's work week?"
+        },
+        "DevDayStartHour": {
+          "default": "What hour do you want to start your developer instances?"
+        },
+        "DevDayStopHour": {
+          "default": "What hour do you want to stop your developer instances?"
+        },
+        "BizWeekStart": {
+          "default": "Which day is the start of the business week?"
+        },
+        "BizWeekEnd": {
+          "default": "Which day is the end of the business week?"
+        },
+        "BizDayStartHour": {
+          "default": "What hour do you want to start your business instances?"
+        },
+        "BizDayStopHour": {
+          "default": "What hour do you want to stop your business instances?"
+        },
+        "VerticalPilotWeekStart": {
+          "default": "Which day does vertical scaling start?"
+        },
+        "VerticalPilotWeekEnd": {
+          "default": "Which day does vertical scaling end?"
+        },
+        "ScaleUpHour": {
+          "default": "What hour do you want to scale up your instances?"
+        },
+        "ScaleDownHour": {
+          "default": "What hour do you want to scale down your instances?"
+        }
+      }
+    },
+    "AWS::CloudFormation::Designer": {
+      "a7b399d3-873e-40f4-b400-39b4770f4c4a": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 240,
+          "y": 280
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "9beca74e-c3c0-4afd-bce1-729bf2ed3404": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 450,
+          "y": 280
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "de4bdb9d-f444-4202-ac21-e0aae93ede59": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 350,
+          "y": 380
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "e38bdb50-2b28-4d98-83ed-57a3da1cb30a": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 350,
+          "y": 280
+        },
+        "z": 1,
+        "embeds": [],
+        "dependson": [
+          "9beca74e-c3c0-4afd-bce1-729bf2ed3404",
+          "a7b399d3-873e-40f4-b400-39b4770f4c4a"
+        ],
+        "isrelatedto": [
+          "de4bdb9d-f444-4202-ac21-e0aae93ede59"
+        ]
+      },
+      "9930d2db-c1f5-4a66-8ce1-3ad0cb30ba55": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 350,
+          "y": 180
+        },
+        "z": 1,
+        "embeds": [],
+        "isrelatedto": [
+          "e38bdb50-2b28-4d98-83ed-57a3da1cb30a"
+        ]
+      },
+      "cbe1b56b-99b0-4e0d-b0a9-61e9bcaa29df": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 240,
+          "y": 180
+        },
+        "z": 1,
+        "embeds": [],
+        "isassociatedwith": [
+          "e38bdb50-2b28-4d98-83ed-57a3da1cb30a"
+        ],
+        "isrelatedto": [
+          "9930d2db-c1f5-4a66-8ce1-3ad0cb30ba55"
+        ]
+      },
+      "bc071aa2-ada7-420a-8c6c-33dc7acca5b6": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 90,
+          "y": 330
+        },
+        "z": 1,
+        "embeds": [],
+        "dependson": [
+          "a7b399d3-873e-40f4-b400-39b4770f4c4a"
+        ],
+        "isrelatedto": [
+          "de4bdb9d-f444-4202-ac21-e0aae93ede59"
+        ]
+      },
+      "88a5fc6c-0e5d-4f43-b591-e1053e8952ba": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 90,
+          "y": 440
+        },
+        "z": 1,
+        "embeds": [],
+        "isrelatedto": [
+          "bc071aa2-ada7-420a-8c6c-33dc7acca5b6"
+        ]
+      },
+      "4cdcae4c-6d1e-4629-98cb-0f58cb1fc05a": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": -10,
+          "y": 440
+        },
+        "z": 1,
+        "embeds": [],
+        "isassociatedwith": [
+          "bc071aa2-ada7-420a-8c6c-33dc7acca5b6"
+        ],
+        "isrelatedto": [
+          "88a5fc6c-0e5d-4f43-b591-e1053e8952ba"
+        ]
+      },
+      "fb6f53f1-7931-4c1a-a7a0-9b23f25aabee": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 90,
+          "y": 220
+        },
+        "z": 1,
+        "embeds": [],
+        "isrelatedto": [
+          "bc071aa2-ada7-420a-8c6c-33dc7acca5b6"
+        ]
+      },
+      "ca9d1a41-9862-41a1-bcec-2bdd8e4bcbbb": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": -10,
+          "y": 220
+        },
+        "z": 1,
+        "embeds": [],
+        "isassociatedwith": [
+          "bc071aa2-ada7-420a-8c6c-33dc7acca5b6"
+        ],
+        "isrelatedto": [
+          "fb6f53f1-7931-4c1a-a7a0-9b23f25aabee"
+        ]
+      },
+      "1c75aa9c-9ae8-4a86-bd26-52ed4aefd8d2": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 620,
+          "y": 330
+        },
+        "z": 1,
+        "embeds": [],
+        "dependson": [
+          "9beca74e-c3c0-4afd-bce1-729bf2ed3404"
+        ],
+        "isrelatedto": [
+          "de4bdb9d-f444-4202-ac21-e0aae93ede59"
+        ]
+      },
+      "dfded15b-88f8-4e5f-85c4-ceedac74234e": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 620,
+          "y": 440
+        },
+        "z": 1,
+        "embeds": [],
+        "isrelatedto": [
+          "1c75aa9c-9ae8-4a86-bd26-52ed4aefd8d2"
+        ]
+      },
+      "3665d8bd-433b-4cc1-892a-5f64684beecd": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 520,
+          "y": 440
+        },
+        "z": 1,
+        "embeds": [],
+        "isassociatedwith": [
+          "1c75aa9c-9ae8-4a86-bd26-52ed4aefd8d2"
+        ],
+        "isrelatedto": [
+          "dfded15b-88f8-4e5f-85c4-ceedac74234e"
+        ]
+      },
+      "342fad1c-5157-4a2e-83e7-bb67d76d20f1": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 620,
+          "y": 220
+        },
+        "z": 1,
+        "embeds": [],
+        "isrelatedto": [
+          "1c75aa9c-9ae8-4a86-bd26-52ed4aefd8d2"
+        ]
+      },
+      "c71dc1aa-1451-4dfb-ac79-5719f0e67df1": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 520,
+          "y": 220
+        },
+        "z": 1,
+        "embeds": [],
+        "isassociatedwith": [
+          "1c75aa9c-9ae8-4a86-bd26-52ed4aefd8d2"
+        ],
+        "isrelatedto": [
+          "342fad1c-5157-4a2e-83e7-bb67d76d20f1"
+        ]
+      },
+      "4b1cff83-4778-428a-bdcd-a69133e84548": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 770,
+          "y": 330
+        },
+        "z": 1,
+        "embeds": [],
+        "dependson": [
+          "9beca74e-c3c0-4afd-bce1-729bf2ed3404"
+        ],
+        "isrelatedto": [
+          "de4bdb9d-f444-4202-ac21-e0aae93ede59"
+        ]
+      },
+      "12804be0-b624-467a-9ebb-f213c46417d8": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 770,
+          "y": 220
+        },
+        "z": 1,
+        "embeds": [],
+        "isrelatedto": [
+          "4b1cff83-4778-428a-bdcd-a69133e84548"
+        ]
+      },
+      "22e1d9a2-ea91-43a8-86f4-b6f57fe80a87": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 870,
+          "y": 220
+        },
+        "z": 1,
+        "embeds": [],
+        "isassociatedwith": [
+          "4b1cff83-4778-428a-bdcd-a69133e84548"
+        ],
+        "isrelatedto": [
+          "12804be0-b624-467a-9ebb-f213c46417d8"
+        ]
+      },
+      "90dbb533-d837-4b46-8ddf-9ed40bc3cd59": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 770,
+          "y": 440
+        },
+        "z": 1,
+        "embeds": [],
+        "isrelatedto": [
+          "4b1cff83-4778-428a-bdcd-a69133e84548"
+        ]
+      },
+      "3db833aa-48ee-4183-8f11-80295c3df84e": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 870,
+          "y": 440
+        },
+        "z": 1,
+        "embeds": [],
+        "isassociatedwith": [
+          "4b1cff83-4778-428a-bdcd-a69133e84548"
+        ],
+        "isrelatedto": [
+          "90dbb533-d837-4b46-8ddf-9ed40bc3cd59"
+        ]
+      },
+      "d0e7491b-97e9-4024-afb4-55c65f5b3450": {
+        "source": {
+          "id": "e38bdb50-2b28-4d98-83ed-57a3da1cb30a"
+        },
+        "target": {
+          "id": "9beca74e-c3c0-4afd-bce1-729bf2ed3404"
+        },
+        "z": 11
+      },
+      "b1f0e248-b7d5-42ff-8736-69952fd405fe": {
+        "source": {
+          "id": "bc071aa2-ada7-420a-8c6c-33dc7acca5b6"
+        },
+        "target": {
+          "id": "a7b399d3-873e-40f4-b400-39b4770f4c4a"
+        },
+        "z": 12
+      },
+      "2e57cfa5-4411-4f0f-b292-909e85de5b3a": {
+        "source": {
+          "id": "e38bdb50-2b28-4d98-83ed-57a3da1cb30a"
+        },
+        "target": {
+          "id": "a7b399d3-873e-40f4-b400-39b4770f4c4a"
+        },
+        "z": 13
+      },
+      "2cea1a2a-0e56-4361-8721-1fca6cfc6837": {
+        "source": {
+          "id": "1c75aa9c-9ae8-4a86-bd26-52ed4aefd8d2"
+        },
+        "target": {
+          "id": "9beca74e-c3c0-4afd-bce1-729bf2ed3404"
+        },
+        "z": 14
+      },
+      "7caec99a-e22d-40bd-a513-0b89bce44803": {
+        "source": {
+          "id": "4b1cff83-4778-428a-bdcd-a69133e84548"
+        },
+        "target": {
+          "id": "9beca74e-c3c0-4afd-bce1-729bf2ed3404"
+        },
+        "z": 15
       }
     }
   },
@@ -231,13 +775,20 @@
           "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
         ],
         "RoleName": "EC2LambdaDynamoRole"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "de4bdb9d-f444-4202-ac21-e0aae93ede59"
+        }
       }
     },
     "EC2StarterLambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": { "Ref": "CodeRepository" },
+          "S3Bucket": {
+            "Ref": "CodeRepository"
+          },
           "S3Key": "EC2-Starter-Lambda.zip"
         },
         "Description": "Lambda function to start EC2 Instances and make entry in audit table.",
@@ -251,13 +802,23 @@
         },
         "Runtime": "python2.7",
         "Timeout": "300"
-      }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "4b1cff83-4778-428a-bdcd-a69133e84548"
+        }
+      },
+      "DependsOn": [
+        "EC2CostManagerAuditTable"
+      ]
     },
     "EC2StopperLambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": { "Ref": "CodeRepository" },
+          "S3Bucket": {
+            "Ref": "CodeRepository"
+          },
           "S3Key": "EC2-Stopper-Lambda.zip"
         },
         "Description": "Lambda function to stop EC2 Instances and make entry in audit table.",
@@ -271,13 +832,23 @@
         },
         "Runtime": "python2.7",
         "Timeout": "300"
-      }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "1c75aa9c-9ae8-4a86-bd26-52ed4aefd8d2"
+        }
+      },
+      "DependsOn": [
+        "EC2CostManagerAuditTable"
+      ]
     },
     "EC2VerticalScalerStopperLambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": { "Ref": "CodeRepository" },
+          "S3Bucket": {
+            "Ref": "CodeRepository"
+          },
           "S3Key": "EC2-VerticalScalerStopper-Lambda.zip"
         },
         "Description": "Lambda function to stop EC2 instances for vertical scaling and insert row into state table",
@@ -291,13 +862,23 @@
         },
         "Runtime": "python2.7",
         "Timeout": "300"
-      }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "bc071aa2-ada7-420a-8c6c-33dc7acca5b6"
+        }
+      },
+      "DependsOn": [
+        "EC2ScalingStateTable"
+      ]
     },
     "EC2VerticalScalerRestarterLambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": { "Ref": "CodeRepository" },
+          "S3Bucket": {
+            "Ref": "CodeRepository"
+          },
           "S3Key": "EC2-VerticalScalerRestarter-Lambda.zip"
         },
         "Description": "Lambda function to change instance type, restart EC2 instance and make entry in audit table.",
@@ -311,7 +892,16 @@
         },
         "Runtime": "python2.7",
         "Timeout": "300"
-      }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "e38bdb50-2b28-4d98-83ed-57a3da1cb30a"
+        }
+      },
+      "DependsOn": [
+        "EC2CostManagerAuditTable",
+        "EC2ScalingStateTable"
+      ]
     },
     "ScaleUpScheduledRule": {
       "Type": "AWS::Events::Rule",
@@ -320,24 +910,42 @@
         "Description": "Scale Up instances with OP_MODE of VERTICAL_PILOT.",
         "ScheduleExpression": {
           "Fn::Join": [
-            "", 
-            [ 
+            "",
+            [
               "cron(0 ",
-              { "Ref" : "ScaleUpHour" },
+              {
+                "Ref": "ScaleUpHour"
+              },
               " ? * ",
-              { "Ref" : "VerticalPilotWeekStart" },
+              {
+                "Ref": "VerticalPilotWeekStart"
+              },
               "-",
-              { "Ref" : "VerticalPilotWeekEnd" },
+              {
+                "Ref": "VerticalPilotWeekEnd"
+              },
               " *)"
             ]
           ]
         },
         "State": "ENABLED",
-        "Targets": [{
-          "Arn": { "Fn::GetAtt": ["EC2VerticalScalerStopperLambda", "Arn"] },
-          "Id": "VERTICAL_PILOT-EC2-Scaler",
-          "Input": "{ \"OpMode\" : \"VERTICAL_PILOT\", \"Action\" : \"SCALE_UP\" }"
-        }]
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "EC2VerticalScalerStopperLambda",
+                "Arn"
+              ]
+            },
+            "Id": "VERTICAL_PILOT-EC2-Scaler",
+            "Input": "{ \"OpMode\" : \"VERTICAL_PILOT\", \"Action\" : \"SCALE_UP\" }"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "fb6f53f1-7931-4c1a-a7a0-9b23f25aabee"
+        }
       }
     },
     "ScaleDownScheduledRule": {
@@ -347,24 +955,42 @@
         "Description": "Scale Down instances with OP_MODE of VERTICAL_PILOT.",
         "ScheduleExpression": {
           "Fn::Join": [
-            "", 
-            [ 
+            "",
+            [
               "cron(0 ",
-              { "Ref" : "ScaleDownHour" },
+              {
+                "Ref": "ScaleDownHour"
+              },
               " ? * ",
-              { "Ref" : "VerticalPilotWeekStart" },
+              {
+                "Ref": "VerticalPilotWeekStart"
+              },
               "-",
-              { "Ref" : "VerticalPilotWeekEnd" },
+              {
+                "Ref": "VerticalPilotWeekEnd"
+              },
               " *)"
             ]
           ]
         },
         "State": "ENABLED",
-        "Targets": [{
-          "Arn": { "Fn::GetAtt": ["EC2VerticalScalerStopperLambda", "Arn"] },
-          "Id": "VERTICAL_PILOT-EC2-Scaler",
-          "Input": "{ \"OpMode\" : \"VERTICAL_PILOT\", \"Action\" : \"SCALE_DOWN\" }"
-        }]
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "EC2VerticalScalerStopperLambda",
+                "Arn"
+              ]
+            },
+            "Id": "VERTICAL_PILOT-EC2-Scaler",
+            "Input": "{ \"OpMode\" : \"VERTICAL_PILOT\", \"Action\" : \"SCALE_DOWN\" }"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "88a5fc6c-0e5d-4f43-b591-e1053e8952ba"
+        }
       }
     },
     "ScalerRestartRule": {
@@ -372,51 +998,99 @@
       "Properties": {
         "Name": "VERTICAL_PILOT-restart",
         "Description": "Restart instance that has been stopped due to a vertical scaling event.",
-          "EventPattern": {
-            "source": [
-              "aws.ec2"
-            ],
-            "detail-type": [
-              "EC2 Instance State-change Notification"
-            ],
-            "detail": {
-              "state": [
-                "stopped"
-              ]
-            }
-          },
+        "EventPattern": {
+          "source": [
+            "aws.ec2"
+          ],
+          "detail-type": [
+            "EC2 Instance State-change Notification"
+          ],
+          "detail": {
+            "state": [
+              "stopped"
+            ]
+          }
+        },
         "State": "ENABLED",
-        "Targets": [{
-          "Arn": { "Fn::GetAtt": ["EC2VerticalScalerRestarterLambda", "Arn"] },
-          "Id": "VERTICAL_PILOT-EC2-Restarter"
-        }]
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "EC2VerticalScalerRestarterLambda",
+                "Arn"
+              ]
+            },
+            "Id": "VERTICAL_PILOT-EC2-Restarter"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "9930d2db-c1f5-4a66-8ce1-3ad0cb30ba55"
+        }
       }
     },
     "PermissionForEventsToInvokeScaleUpStop": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
-        "FunctionName": { "Ref": "EC2VerticalScalerStopperLambda" },
+        "FunctionName": {
+          "Ref": "EC2VerticalScalerStopperLambda"
+        },
         "Action": "lambda:InvokeFunction",
         "Principal": "events.amazonaws.com",
-        "SourceArn": { "Fn::GetAtt": ["ScaleUpScheduledRule", "Arn"] }
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "ScaleUpScheduledRule",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "ca9d1a41-9862-41a1-bcec-2bdd8e4bcbbb"
+        }
       }
     },
     "PermissionForEventsToInvokeScaleDownStop": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
-        "FunctionName": { "Ref": "EC2VerticalScalerStopperLambda" },
+        "FunctionName": {
+          "Ref": "EC2VerticalScalerStopperLambda"
+        },
         "Action": "lambda:InvokeFunction",
         "Principal": "events.amazonaws.com",
-        "SourceArn": { "Fn::GetAtt": ["ScaleDownScheduledRule", "Arn"] }
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "ScaleDownScheduledRule",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "4cdcae4c-6d1e-4629-98cb-0f58cb1fc05a"
+        }
       }
     },
     "PermissionForEventsToInvokeScalerRestart": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
-        "FunctionName": { "Ref": "EC2VerticalScalerRestarterLambda" },
+        "FunctionName": {
+          "Ref": "EC2VerticalScalerRestarterLambda"
+        },
         "Action": "lambda:InvokeFunction",
         "Principal": "events.amazonaws.com",
-        "SourceArn": { "Fn::GetAtt": ["ScalerRestartRule", "Arn"] }
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "ScalerRestartRule",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "cbe1b56b-99b0-4e0d-b0a9-61e9bcaa29df"
+        }
       }
     },
     "DevWeekStartScheduledRule": {
@@ -426,33 +1100,63 @@
         "Description": "Start instances with OP_MODE of DEV_WEEK.",
         "ScheduleExpression": {
           "Fn::Join": [
-            "", 
-            [ 
+            "",
+            [
               "cron(0 ",
-              { "Ref" : "DevDayStartHour" },
+              {
+                "Ref": "DevDayStartHour"
+              },
               " ? * ",
-              { "Ref" : "DevWeekStart" },
+              {
+                "Ref": "DevWeekStart"
+              },
               "-",
-              { "Ref" : "DevWeekEnd" },
+              {
+                "Ref": "DevWeekEnd"
+              },
               " *)"
             ]
           ]
         },
         "State": "ENABLED",
-        "Targets": [{
-          "Arn": { "Fn::GetAtt": ["EC2StarterLambda", "Arn"] },
-          "Id": "DEV_WEEK-EC2-Starter",
-          "Input": "{ \"OpMode\" : \"DEV_WEEK\" }"
-        }]
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "EC2StarterLambda",
+                "Arn"
+              ]
+            },
+            "Id": "DEV_WEEK-EC2-Starter",
+            "Input": "{ \"OpMode\" : \"DEV_WEEK\" }"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "90dbb533-d837-4b46-8ddf-9ed40bc3cd59"
+        }
       }
     },
     "PermissionForEventsToInvokeDevStarter": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
-        "FunctionName": { "Ref": "EC2StarterLambda" },
+        "FunctionName": {
+          "Ref": "EC2StarterLambda"
+        },
         "Action": "lambda:InvokeFunction",
         "Principal": "events.amazonaws.com",
-        "SourceArn": { "Fn::GetAtt": ["DevWeekStartScheduledRule", "Arn"] }
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "DevWeekStartScheduledRule",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "3db833aa-48ee-4183-8f11-80295c3df84e"
+        }
       }
     },
     "DevWeekStopScheduledRule": {
@@ -462,33 +1166,63 @@
         "Description": "Stop instances with OP_MODE of DEV_WEEK.",
         "ScheduleExpression": {
           "Fn::Join": [
-            "", 
-            [ 
+            "",
+            [
               "cron(0 ",
-              { "Ref" : "DevDayStopHour" },
+              {
+                "Ref": "DevDayStopHour"
+              },
               " ? * ",
-              { "Ref" : "DevWeekStart" },
+              {
+                "Ref": "DevWeekStart"
+              },
               "-",
-              { "Ref" : "DevWeekEnd" },
+              {
+                "Ref": "DevWeekEnd"
+              },
               " *)"
             ]
           ]
         },
         "State": "ENABLED",
-        "Targets": [{
-          "Arn": { "Fn::GetAtt": ["EC2StopperLambda", "Arn"] },
-          "Id": "DEV_WEEK-EC2-Stopper",
-          "Input": "{ \"OpMode\" : \"DEV_WEEK\" }"
-        }]
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "EC2StopperLambda",
+                "Arn"
+              ]
+            },
+            "Id": "DEV_WEEK-EC2-Stopper",
+            "Input": "{ \"OpMode\" : \"DEV_WEEK\" }"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "342fad1c-5157-4a2e-83e7-bb67d76d20f1"
+        }
       }
     },
     "PermissionForEventsToInvokeDevStopper": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
-        "FunctionName": { "Ref": "EC2StopperLambda" },
+        "FunctionName": {
+          "Ref": "EC2StopperLambda"
+        },
         "Action": "lambda:InvokeFunction",
         "Principal": "events.amazonaws.com",
-        "SourceArn": { "Fn::GetAtt": ["DevWeekStopScheduledRule", "Arn"] }
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "DevWeekStopScheduledRule",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "c71dc1aa-1451-4dfb-ac79-5719f0e67df1"
+        }
       }
     },
     "BizWeekStartScheduledRule": {
@@ -498,33 +1232,63 @@
         "Description": "Start instances with OP_MODE of BIZ_WEEK.",
         "ScheduleExpression": {
           "Fn::Join": [
-            "", 
-            [ 
+            "",
+            [
               "cron(0 ",
-              { "Ref" : "BizDayStartHour" },
+              {
+                "Ref": "BizDayStartHour"
+              },
               " ? * ",
-              { "Ref" : "BizWeekStart" },
+              {
+                "Ref": "BizWeekStart"
+              },
               "-",
-              { "Ref" : "BizWeekEnd" },
+              {
+                "Ref": "BizWeekEnd"
+              },
               " *)"
             ]
           ]
         },
         "State": "ENABLED",
-        "Targets": [{
-          "Arn": { "Fn::GetAtt": ["EC2StarterLambda", "Arn"] },
-          "Id": "BIZ_WEEK-EC2-Starter",
-          "Input": "{ \"OpMode\" : \"BIZ_WEEK\" }"
-        }]
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "EC2StarterLambda",
+                "Arn"
+              ]
+            },
+            "Id": "BIZ_WEEK-EC2-Starter",
+            "Input": "{ \"OpMode\" : \"BIZ_WEEK\" }"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "12804be0-b624-467a-9ebb-f213c46417d8"
+        }
       }
     },
     "PermissionForEventsToInvokeBizStarter": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
-        "FunctionName": { "Ref": "EC2StarterLambda" },
+        "FunctionName": {
+          "Ref": "EC2StarterLambda"
+        },
         "Action": "lambda:InvokeFunction",
         "Principal": "events.amazonaws.com",
-        "SourceArn": { "Fn::GetAtt": ["BizWeekStartScheduledRule", "Arn"] }
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "BizWeekStartScheduledRule",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "22e1d9a2-ea91-43a8-86f4-b6f57fe80a87"
+        }
       }
     },
     "BizWeekStopScheduledRule": {
@@ -534,33 +1298,63 @@
         "Description": "Stop instances with OP_MODE of BIZ_WEEK.",
         "ScheduleExpression": {
           "Fn::Join": [
-            "", 
-            [ 
+            "",
+            [
               "cron(0 ",
-              { "Ref" : "BizDayStopHour" },
+              {
+                "Ref": "BizDayStopHour"
+              },
               " ? * ",
-              { "Ref" : "BizWeekStart" },
+              {
+                "Ref": "BizWeekStart"
+              },
               "-",
-              { "Ref" : "BizWeekEnd" },
+              {
+                "Ref": "BizWeekEnd"
+              },
               " *)"
             ]
           ]
         },
         "State": "ENABLED",
-        "Targets": [{
-          "Arn": { "Fn::GetAtt": ["EC2StopperLambda", "Arn"] },
-          "Id": "BIZ_WEEK-EC2-Stopper",
-          "Input": "{ \"OpMode\" : \"BIZ_WEEK\" }"
-        }]
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "EC2StopperLambda",
+                "Arn"
+              ]
+            },
+            "Id": "BIZ_WEEK-EC2-Stopper",
+            "Input": "{ \"OpMode\" : \"BIZ_WEEK\" }"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "dfded15b-88f8-4e5f-85c4-ceedac74234e"
+        }
       }
     },
     "PermissionForEventsToInvokeBizStopper": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
-        "FunctionName": { "Ref": "EC2StopperLambda" },
+        "FunctionName": {
+          "Ref": "EC2StopperLambda"
+        },
         "Action": "lambda:InvokeFunction",
         "Principal": "events.amazonaws.com",
-        "SourceArn": { "Fn::GetAtt": ["BizWeekStopScheduledRule", "Arn"] }
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "BizWeekStopScheduledRule",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "3665d8bd-433b-4cc1-892a-5f64684beecd"
+        }
       }
     },
     "EC2CostManagerAuditTable": {
@@ -591,6 +1385,11 @@
           "WriteCapacityUnits": "15"
         },
         "TableName": "EC2CostAuditTrail"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "9beca74e-c3c0-4afd-bce1-729bf2ed3404"
+        }
       }
     },
     "EC2ScalingStateTable": {
@@ -613,6 +1412,11 @@
           "WriteCapacityUnits": "5"
         },
         "TableName": "EC2ScalingState"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "a7b399d3-873e-40f4-b400-39b4770f4c4a"
+        }
       }
     }
   }
