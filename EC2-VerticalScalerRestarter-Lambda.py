@@ -34,14 +34,19 @@ def lambda_handler(event, context):
         print("Unable to find instance in state table".format(e))
         action = "DO_NOTHING"
     else:
-        item = resp['Item']
-        print item
-        state = item['State']
-        if state == "SCALING_UP":
-            action = "SCALE_UP"
-        elif state == "SCALING_DOWN":
-            action = "SCALE_DOWN"
+        if 'Item' in resp.keys():
+            item = resp['Item']
+            print item
+            state = item['State']
+            if state == "SCALING_UP":
+                action = "SCALE_UP"
+            elif state == "SCALING_DOWN":
+                action = "SCALE_DOWN"
+            else:
+                print "Invalid state returned."
+                action = "DO_NOTHING"
         else:
+            print "No state record found."
             action = "DO_NOTHING"
 
     #change the instance type of the instance based on the value in the state table
