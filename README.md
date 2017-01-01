@@ -1,10 +1,18 @@
 # EC2-CostManager
 
-The EC2CostManager starts and stops AWS EC2 instances on a schedule you define based on an OP_MODE tag on your EC2 instances. The schedule is defined in UTC time.  The CloudFormation script creates two lamda functions (EC2-Starter-Lambda and a EC2-Stopper-Lambda), one IAM role (LambdaEC2Role), and four CloudWatch Schedule rules - two for DEV_WEEK instances and two for BIZ_WEEK instances (two stopper rules and two starter rules).
+The EC2CostManager starts and stops AWS EC2 instances on a schedule you define based on an OP_MODE tag on your EC2 instances. The schedule is defined in UTC time.  
+
+The CloudFormation script creates:
+
+A. Four Lambda functions: (EC2-Starter-Lambda, EC2-Stopper-Lambda, EC2-VerticalScalerStoper-Lamda, EC2-VerticalScalerRestarter-Lamda)
+
+B. One IAM role (LambdaEC2Role)
+
+C. Seven CloudWatch Schedule rules (BIZ_WEEK-start, BIZ_WEEK-stop, DEV_WEEK-start, DEV_WEEK-stop, VERTICAL_PILOT-scale_down, VERTICAL_PILOT-scale_up, VERTICAL_PILOT-restart)
 
 Instructions:
 
-1. Tag the instances you want to control with an OP_MODE tage of either BIZ_WEEK or DEV_WEEK.
+1. Tag the instances you want to control with an OP_MODE tage of either BIZ_WEEK, DEV_WEEK or VERTICAL_SCALE (VERTICAL_SCALE also requires SCALE_UP and SCALE_DOWN tags with the instance type for each scalingaction).
 
 2. Copy this utility into an S3 bucket in the same region as the EC2 instances you wish to control.
 
