@@ -49,17 +49,17 @@ def lambda_handler(event, context):
         shuttingDown = ec2.instances.filter(InstanceIds=runningInstances).stop()
         print shuttingDown
         dt = datetime.now()
-        print dt
-        for fi in filteredInstances:
+        #print dt
+        for ri in runningInstances:
             # Insert instance information into EC2 Audit DynamoDB table
             try:
                 resp = auditTable.put_item(
                     Item={
-                        'InstanceId': fi.id,
+                        'InstanceId': ri,
                         'TimeStamp': str(dt),
                         'OpMode': opMode,
                         'Action': "stop",
-                        'InstanceType': fi.instance_type})
+                        'InstanceType': ec2.Instance(ri).instance_type})
             except Exception as e:
                  print(e)
                  print("Unable to insert data into DynamoDB table".format(e))
