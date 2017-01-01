@@ -6,9 +6,11 @@ The CloudFormation script creates:
 
 A. Four Lambda functions: (EC2-Starter-Lambda, EC2-Stopper-Lambda, EC2-VerticalScalerStoper-Lamda, EC2-VerticalScalerRestarter-Lamda)
 
-B. One IAM role (LambdaEC2Role)
+B. One IAM role (EC2LambdaDynamoDBRole)
 
 C. Seven CloudWatch Schedule rules (BIZ_WEEK-start, BIZ_WEEK-stop, DEV_WEEK-start, DEV_WEEK-stop, VERTICAL_PILOT-scale_down, VERTICAL_PILOT-scale_up, VERTICAL_PILOT-restart)
+
+D. Two DynamoDB Tables (EC2CostAuditTrail, EC2ScalingState)
 
 Instructions:
 
