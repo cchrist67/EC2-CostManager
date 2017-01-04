@@ -1,16 +1,16 @@
 # EC2-CostManager
 
-The EC2CostManager starts and stops AWS EC2 instances on a schedule you define based on an OP_MODE tag on your EC2 instances. The schedule is defined in UTC time.  
+The EC2CostManager starts and stops AWS EC2 instances on a schedule you define based on an OP_MODE tag on your EC2 instances. It also vertically scales auto scaling groups. The schedule is defined in UTC time.  
 
 The CloudFormation script creates:
 
-A. Four Lambda functions: (EC2-Starter-Lambda, EC2-Stopper-Lambda, EC2-VerticalScalerStoper-Lamda, EC2-VerticalScalerRestarter-Lamda)
+A. Five Lambda functions: (EC2-Starter-Lambda, EC2-Stopper-Lambda, EC2-VerticalScalerStoper-Lamda, EC2-VerticalScalerRestarter-Lamda, AS-VerticalScaler-Lamda)
 
 B. One IAM role (EC2LambdaDynamoDBRole)
 
-C. Seven CloudWatch Schedule rules (BIZ_WEEK-start, BIZ_WEEK-stop, DEV_WEEK-start, DEV_WEEK-stop, VERTICAL_PILOT-scale_down, VERTICAL_PILOT-scale_up, VERTICAL_PILOT-restart)
+C. Nine CloudWatch Schedule rules (BIZ_WEEK-start, BIZ_WEEK-stop, DEV_WEEK-start, DEV_WEEK-stop, VERTICAL_PILOT-scale_down, VERTICAL_PILOT-scale_up, VERTICAL_PILOT-restart, VERTICAL_PILOT_AS-scale_down, VERTICAL_PILOT_AS-scale_up,)
 
-D. Two DynamoDB Tables (EC2CostAuditTrail, EC2ScalingState)
+D. Three DynamoDB Tables (EC2CostAuditTrail, EC2ScalingState, ASCostMgmtAuditTrail)
 
 Instructions:
 
