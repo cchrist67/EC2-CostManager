@@ -38,9 +38,9 @@ def lambda_handler(event, context):
             item = resp['Item']
             print item
             state = item['State']
-            if state == "SCALING_UP":
+            if state == "WAITING_TO_SCALE_UP":
                 action = "SCALE_UP"
-            elif state == "SCALING_DOWN":
+            elif state == "WAITING_TO_SCALE_DOWN":
                 action = "SCALE_DOWN"
             else:
                 print "Invalid state returned."
